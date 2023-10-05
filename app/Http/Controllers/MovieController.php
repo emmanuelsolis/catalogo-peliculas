@@ -21,4 +21,21 @@ class MovieController extends Controller
         }
         return response()->json($movie);
     } 
+    public function crear(){
+        return view('crearPelicula');
+    }
+    public function store(){
+        if(!$_POST){
+            header( 'Location: https://localhost:8000' );
+        }
+        $datos = request()->all();
+        $movie = new Movie();
+        $movie->title = $datos['title'];
+        $movie->year = $datos['year'];
+        $movie->synopsis = $datos['synopsis'];
+        $movie->cover = $datos['cover'];
+        $movie->save();
+        return response()->json($movie);
+
+    }
 }
