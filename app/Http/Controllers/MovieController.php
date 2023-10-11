@@ -14,6 +14,10 @@ class MovieController extends Controller
     
       // return view('AllMovies', ['movies' => Movie::all()]);
     }
+    public function showAllMovies(){
+        $movies = Movie::all();
+        return view('allMovies', ['movies' => $movies]);
+    }
     public function  showOneMovie($id){
         $movie = Movie::find($id);
         if(!$movie){
@@ -35,7 +39,27 @@ class MovieController extends Controller
         $movie->synopsis = $datos['synopsis'];
         $movie->cover = $datos['cover'];
         $movie->save();
-        return response()->json($movie);
+        return redirect()->back();
 
     }
+    public function edit($id){
+        $movie = Movie::find($id);
+        return view('editMovie', ['movie' => $movie]);
+    }
+    public function update(Request $request,$id) {
+        $movie = Movie::find($id);
+        $data = request()->all();
+        $movie->title = $data['title'];
+        $movie->year = $data['year'];
+        $movie->synopsis = $data['synopsis'];
+        $movie->cover = $data['cover'];
+      $movie->update();
+        return redirect()->back();
+    }
+    public function destroy($id){
+        $movie = Movie::find($id);
+        $movie->delete();
+        return redirect()->back();
+    }
+   
 }
