@@ -1,2 +1,42 @@
-<!-- <h2>{{movies}}</h2> -->
-<h2>Lista de Peliculas</h2>
+<h2 class="text-center">Catálogo</h2>
+<div class="mt-5 container">
+ <div class="card">
+     <div class="card-header">
+        <h4>Lista de películas</h4>
+    </div>
+    <div class="card-body">
+        <table class="table tabl-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cover</th>
+                    <th>Titulo</th>
+                    <th>Año</th>
+                    <th>Resúmen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <tr *ngFor="let movie of movies" class="text-sm font-medium text-gray-900">
+                    <td class="px-6 py-4">
+                        <span class="px-2 inline-flex text-xs ">
+                            {{movie.id}} 
+                        </span>
+                    </td>
+                    <td><img [src]="movie.cover"></td>
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.synopsis}}</td>
+                    <td>
+                        <div class="container">
+                            <a class="btn btn-primary " routerLink="/movies/details/{{movie.id}}">Ver</a>
+                            <!-- <a class="btn btn-warning " routerLink="/movies/edit/{{movie.id}}">Editar</a> -->
+                            <!-- <a class="btn btn-danger" (click)="deleteMovie(movie.id)">Eliminar</a> -->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ </div>
+</div>

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { NavbarComponent } from './Pages/Partials/navbar/navbar.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent, title: 'Pagina de Inicio'},
-  {path: 'movies', component: ListMovieComponent, title: 'Listado de Peliculas'},
+  {path: 'movies/list', component: ListMovieComponent, title: 'Listado de Peliculas'},
   {path: 'movie/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula'}
 ]
 @NgModule({
@@ -21,7 +22,7 @@ const routes: Routes = [
     NavbarComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes)
+    BrowserModule, RouterModule.forRoot(routes), HttpClientModule
   ],
   exports: [RouterModule],
   providers: [],

@@ -14,10 +14,11 @@ class Movie extends Model
         'Synopsis',
         'year',
         'cover',
-    ];
-    protected $hidden = [
         'id',
         'updated_at',
         'created_at',
+    ];
+    protected $hidden = [
+        
     ];
 }
