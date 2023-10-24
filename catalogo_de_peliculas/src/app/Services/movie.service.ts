@@ -13,16 +13,26 @@ export interface MovieResponse {
   updated_at: Date
 
 }
+ 
+export interface MovieResponseType {
+  status: Number,
+  movies: MovieResponse[]
+}
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  url='http://localhost:8000/api/movies'
+  url='http://localhost:8000/api'
 
-  constructor(private httpClient: HttpClient ) { }
+  constructor(private http: HttpClient ) { }
 
   getAllMovies() {
-    return this.httpClient.get(this.url);
+    return this.http.get<MovieResponseType>(this.url + '/movies');
+  }
+  getOneMovie(id: number): Observable<MovieResponse> {
+    const movieUrl=`${this.url}/movies/${id}`;
+    console.log('este es el url',movieUrl)
+    return this.http.get<MovieResponse>(movieUrl);
   }
 }

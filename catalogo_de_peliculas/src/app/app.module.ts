@@ -10,8 +10,8 @@ import { NavbarComponent } from './Pages/Partials/navbar/navbar.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent, title: 'Pagina de Inicio'},
-  {path: 'movies/list', component: ListMovieComponent, title: 'Listado de Peliculas'},
-  {path: 'movie/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula'}
+  {path: 'movies', component: ListMovieComponent, title: 'Listado de Peliculas'},
+  {path: 'movies/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula'}
 ]
 @NgModule({
   declarations: [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieResponse, MovieService } from '../../Services/movie.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-movie',
@@ -9,23 +10,22 @@ import { MovieResponse, MovieService } from '../../Services/movie.service';
 export class ListMovieComponent implements OnInit {
 
   movies: any=[]; // Create an array of movies
+  constructor(public ms: MovieService, private router: Router, private route: ActivatedRoute) {}
 
-  constructor(public ms: MovieService) {}
 
-  moviesList!: MovieResponse[];
-  
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      console.log('params', params)
+    })
+ 
     this.getMovieList();
   }
 
   getMovieList() {
-    this.ms.getAllMovies().subscribe((res:any)=>{
-      this.moviesList = res;
-      console.log(res);
-      this.movies = this.moviesList;
+    this.ms.getAllMovies().subscribe((res)=>{
+      this.movies = res
     })
   }
 
-  
-
+ 
 }

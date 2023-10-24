@@ -1,1 +1,16 @@
-<p>details-movie works!</p>
+<div class="row">
+    <div class="col-8">
+        <div class="row">
+            <div class="col-4" *ngIf="movie.id">
+                <div class="card">
+                    <div class="card-body">
+                        <img [src]="movie.cover" class="card-img-top">
+                        <h5 class="card-title">{{movie.title}}</h5>
+                        <p class="card-text">{{movie.year}}</p>
+                        <p>{{movie.synopsis}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
