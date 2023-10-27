@@ -1,0 +1,96 @@
+#banner img, #mapa iframe{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+ }
+ @keyframes zoomAnimation {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.5) rotate(15deg); /* Cambia este valor para ajustar el nivel de zoom */
+    }
+    100% {
+      transform: scale(2) rotate(30deg);
+    }
+  }
+  #img-banner {
+    animation: zoomAnimation 20s ease-in-out infinite;
+  }
+ #banner {
+    overflow: hidden;
+ }
+
+ body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+  }
+  
+  header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  .hero {
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .features {
+    list-style-type: none;
+  }
+  
+  .features li {
+    margin-bottom: 10px;
+  }
+  
+  .call-to-action {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  

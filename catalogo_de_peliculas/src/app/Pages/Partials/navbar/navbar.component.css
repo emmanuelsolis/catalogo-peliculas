@@ -1,0 +1,9 @@
+.navbar-brand img {
+    width: 150px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.colapse {
+    text-align: right;
+}
