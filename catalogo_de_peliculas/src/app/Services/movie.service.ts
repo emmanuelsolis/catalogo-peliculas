@@ -35,4 +35,7 @@ export class MovieService {
     console.log('este es el url',movieUrl)
     return this.http.get<MovieResponse>(movieUrl);
   }
+  createMovie(movie: Movie) {
+    return this.http.post<MovieResponse>(this.url + '/crear-pelicula', movie);
+  }
 }

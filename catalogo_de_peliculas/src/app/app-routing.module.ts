@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { ListMovieComponent } from './Pages/list-movie/list-movie.component';
 import { DetailsMovieComponent } from './Pages/details-movie/details-movie.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
-import { FooterComponent } from './Pages/Partials/footer/footer.component';
+import { AddMovieComponent } from './Pages/add-movie/add-movie.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, title: 'Pagina de Inicio' },
   { path: 'movies', component: ListMovieComponent, title: 'Listado de Peliculas' },
-  { path: 'movies/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula' }
+  { path: 'movies/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula' },
+  { path: 'movies/crear-pelicula', component: AddMovieComponent, title: 'Agregar Pelicula' }
 ]
 
 @NgModule({
   declarations: [
-    ListMovieComponent,
     DetailsMovieComponent,
     HomePageComponent,
-    FooterComponent
+    AddMovieComponent,
+    ListMovieComponent
    
   ],
-  imports: [
-    RouterModule, RouterModule.forRoot(routes), BrowserModule, HttpClientModule
-  ],
+  imports: [ RouterModule.forRoot(routes), HttpClientModule, BrowserModule ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

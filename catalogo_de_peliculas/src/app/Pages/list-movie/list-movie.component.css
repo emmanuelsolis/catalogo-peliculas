@@ -11,3 +11,9 @@ body{
   display: contents;
   align-content: center;
 }
+.card-header  {
+  display: grid;
+  flex-direction: row;
+  justify-items: flex-end;
+  align-items: flex-end;
+}
