@@ -1,1 +1,35 @@
-<p>add-movie works!</p>
+<div>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h4>
+          Crear Película
+          <a routerLink="/" class="btn btn-danger float-end">Back</a>
+        </h4>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="saveMovie()">
+            <div class="mb-3">
+                <label >Imagen</label>
+                <input type="text" [(ngModel)]="cover" class="form-control" name="cover">
+            </div>
+            <div class="mb-3">
+                <label >Titulo</label>
+                <input type="text" [(ngModel)]="title" class="form-control" name="title">
+            </div>
+            <div class="mb-3">
+                <label >Año</label>
+                <input type="text" [(ngModel)]="year" class="form-control" name="year">
+            </div>
+            <div class="mb-3">
+                <label >Resúmen</label>
+                <textarea [(ngModel)]="synopsis" class="form-control" name="synopsis" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../movie';
@@ -24,6 +24,9 @@ export interface MovieResponseType {
 export class MovieService {
 
   url='http://localhost:8000/api'
+  reqHeader = new HttpHeaders({
+    'Content-Type': 'application/json'
+  });
 
   constructor(private http: HttpClient ) { }
 
@@ -35,7 +38,15 @@ export class MovieService {
     console.log('este es el url',movieUrl)
     return this.http.get<MovieResponse>(movieUrl);
   }
-  createMovie(movie: Movie) {
-    return this.http.post<MovieResponse>(this.url + '/crear-pelicula', movie);
+  saveMovie(inputData:Movie): Observable<MovieResponse> {
+    console.log('este es el inputData',inputData)
+    return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData, {headers: this.reqHeader});
   }
+  updateMovie(id: number, inputData: Movie) {
+    return this.http.put(`${this.url}/movies/${id}`, inputData, { headers: this.reqHeader});
+  }
+  deleteMovie(id: number) {
+    return this.http.delete(`${this.url}/movies/${id}`);
+  }
+
 }

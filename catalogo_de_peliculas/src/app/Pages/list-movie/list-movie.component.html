@@ -3,7 +3,7 @@
  <div class="card mx-auto">
     <router-outlet></router-outlet>
      <div class="card-header ">
-        <a type="button" class=" btn btn-danger float-right d-flex">+Agregar</a>
+        <a type="button" class=" btn btn-danger float-right d-flex" routerLink="/crear-pelicula">+Agregar</a>
     </div>
     <div class="card-body ">
         <table class="table tabl-striped table-bordered">
@@ -31,7 +31,8 @@
                     <td>
                         <div class="container">
                             <a class="btn btn-primary" routerLink="/movies/{{movie.id}}">Ver</a>
-                            <!-- <a class="btn btn-warning " routerLink="/movies/edit/{{movie.id}}">Editar</a> -->
+                            <a routerLink="" class="btn btn-success">Editar</a>
+                            <button type="button" (click)="onDelete(movie.id)" class="btn btn-danger">Borrar</button>
                             <!-- <a class="btn btn-danger" (click)="deleteMovie(movie.id)">Eliminar</a> -->
                         </div>
                     </td>

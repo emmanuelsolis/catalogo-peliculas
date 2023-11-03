@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/movies', [MovieController::class, 'index'] );
 Route::get('/movies/{id}', [MovieController::class, 'showOneMovie']);
 Route::get('/crear-pelicula', [MovieController::class, 'crear'])->name('post.create');
-Route::post( '/home/movies', [MovieController::class, 'store'])->name('post.store');
+Route::post( '/crear-pelicula', [MovieController::class, 'store'])->name('post.store');
 Route::get('/home/movies', [MovieController::class, 'showAllMovies'])->name('get.showAllMovies');
 Route::put( '/movies/{id}', [MovieController::class, 'update']);
 Route::delete( '/movies/{id}', [MovieController::class, 'destroy']);

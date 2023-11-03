@@ -6,13 +6,14 @@ import { DetailsMovieComponent } from './Pages/details-movie/details-movie.compo
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { AddMovieComponent } from './Pages/add-movie/add-movie.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, title: 'Pagina de Inicio' },
   { path: 'movies', component: ListMovieComponent, title: 'Listado de Peliculas' },
   { path: 'movies/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula' },
-  { path: 'movies/crear-pelicula', component: AddMovieComponent, title: 'Agregar Pelicula' }
+  { path: 'crear-pelicula', component: AddMovieComponent, title: 'Agregar Pelicula' },
 ]
 
 @NgModule({
@@ -20,10 +21,11 @@ const routes: Routes = [
     DetailsMovieComponent,
     HomePageComponent,
     AddMovieComponent,
-    ListMovieComponent
+    ListMovieComponent,
+    
    
   ],
-  imports: [ RouterModule.forRoot(routes), HttpClientModule, BrowserModule ],
+  imports: [ RouterModule.forRoot(routes), HttpClientModule, BrowserModule, FormsModule ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

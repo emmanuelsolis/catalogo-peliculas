@@ -26,6 +26,13 @@ export class ListMovieComponent implements OnInit {
       this.movies = res
     })
   }
+  onDelete(id:number){
+    this.ms.deleteMovie(id).subscribe((res)=>{
+      this.getMovieList();
+      alert( "Movie Deleted Successfully!" );
+
+    })
+  }
 
  
 }
