@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'movies', component: ListMovieComponent, title: 'Listado de Peliculas' },
   { path: 'movies/:id', component: DetailsMovieComponent, title: 'Detalles de Pelicula' },
   { path: 'crear-pelicula', component: AddMovieComponent, title: 'Agregar Pelicula' },
+  { path: 'moviedit/:id', component: AddMovieComponent, title: 'Editar Pelicula' }
 ]
 
 @NgModule({

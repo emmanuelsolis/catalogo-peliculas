@@ -39,7 +39,7 @@ class MovieController extends Controller
         $movie->synopsis = $datos['synopsis'];
         $movie->cover = $datos['cover'];
         $movie->save();
-        return redirect()->back();
+        // return redirect()->back();
 
     }
     public function edit($id){

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MovieService } from 'src/app/Services/movie.service';
 import { NgForm } from '@angular/forms';
 import { Movie } from 'src/app/movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
@@ -9,8 +10,8 @@ import { Movie } from 'src/app/movie';
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent {
-  
-  constructor(private ms:MovieService){}
+  movies : any = [];
+  constructor(private ms:MovieService, private router:Router){}
 
   cover!: string
   title!: string
@@ -19,7 +20,18 @@ export class AddMovieComponent {
 
     errors: any = [];
 
-       saveMovie(){
+    onSubmit(){
+      this.saveMovie();
+      this.router.navigate(['/']);
+    }
+
+    getMovieList() {
+      this.ms.getAllMovies().subscribe((res)=>{
+        this.movies = res
+      })
+    }
+
+    saveMovie(){
       var inputData = {
         cover: this.cover,
         title: this.title,
@@ -28,15 +40,17 @@ export class AddMovieComponent {
       }
       this.ms.saveMovie(inputData).subscribe({
         next: (res:any) => {
-          console.log('respuesta:', res);
-          alert('Pelicula guardada exitosamente');
+         this.router.navigate(['/movies']);
+          alert('Pelicula guardada correctamente');
         },
         error: (err:any) => {
-          this.errors = err.error.errors;
+          this.errors = err;
           alert('Error al guardar la pelicula');
-          console.log('Error:', err.error.errors);
         }
       });
+    }
+    submitForm(movieForm: NgForm){
+      console.log(movieForm.value)
     }
 
   

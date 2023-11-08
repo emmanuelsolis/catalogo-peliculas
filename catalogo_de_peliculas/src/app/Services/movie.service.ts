@@ -1,10 +1,10 @@
+import { Movie } from './../movie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie } from '../movie';
 
 export interface MovieResponse {
-  id: number
+  id: number | null
   cover: string
   title: string
   year: string
@@ -28,6 +28,16 @@ export class MovieService {
     'Content-Type': 'application/json'
   });
 
+  selectMovie: MovieResponse = {
+    id: null,
+    cover: '',
+    title: '',
+    year:'',
+    synopsis: '',
+    created_at: new Date,
+    updated_at: new Date
+  };
+
   constructor(private http: HttpClient ) { }
 
   getAllMovies() {
@@ -40,7 +50,7 @@ export class MovieService {
   }
   saveMovie(inputData:Movie): Observable<MovieResponse> {
     console.log('este es el inputData',inputData)
-    return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData, {headers: this.reqHeader});
+    return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData,/* {headers: this.reqHeader}*/);
   }
   updateMovie(id: number, inputData: Movie) {
     return this.http.put(`${this.url}/movies/${id}`, inputData, { headers: this.reqHeader});

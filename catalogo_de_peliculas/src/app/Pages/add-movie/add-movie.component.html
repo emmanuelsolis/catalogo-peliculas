@@ -8,7 +8,7 @@
         </h4>
       </div>
       <div class="card-body">
-        <form (ngSubmit)="saveMovie()">
+        <form #movieForm="ngForm" (ngSubmit)="saveMovie()">
             <div class="mb-3">
                 <label >Imagen</label>
                 <input type="text" [(ngModel)]="cover" class="form-control" name="cover">
