@@ -6,9 +6,9 @@
                 <h1 class="modal-title fs-5" id="edit">Actualizar datos de la Pelicula</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('home.update', $movie->id)}}" method="POST" align="center" enctype="multipart/form-data">
-                @csrf
+            <form action="{{route('home.updateMovie', $movie->id)}}" method="POST" align="center" enctype="multipart/form-data">
                 @method('PUT')
+                @csrf
                 <div class="modal-body align-content-center">
                     <label for="title" class="mb-3">
                         Title:

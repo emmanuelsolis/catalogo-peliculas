@@ -28,7 +28,7 @@ export class MovieService {
     'Content-Type': 'application/json'
   });
 
-  selectMovie: MovieResponse = {
+  selectedMovie: MovieResponse = {
     id: null,
     cover: '',
     title: '',
@@ -52,8 +52,13 @@ export class MovieService {
     console.log('este es el inputData',inputData)
     return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData,/* {headers: this.reqHeader}*/);
   }
-  updateMovie(id: number, inputData: Movie) {
-    return this.http.put(`${this.url}/movies/${id}`, inputData, { headers: this.reqHeader});
+  getMovie(id: number): Observable<MovieResponse> {
+    const movieToEditUrl=`${this.url}/movies/${id}`;
+    return this.http.get<MovieResponse>(`${movieToEditUrl}/edit`);
+  }
+  updateMovie(inputData:object, movieId:number):Observable<Object> {
+    console.log('este es el inputData',inputData)
+    return this.http.put<MovieResponse>(`${this.url}/movies/${movieId}/edit`,  inputData);
   }
   deleteMovie(id: number) {
     return this.http.delete(`${this.url}/movies/${id}`);

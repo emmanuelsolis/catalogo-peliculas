@@ -3,12 +3,12 @@
     <div class="card">
       <div class="card-header">
         <h4>
-          Crear Película
+          Editar Película
           <a routerLink="/" class="btn btn-danger float-end">Back</a>
         </h4>
       </div>
       <div class="card-body">
-        <form #movieForm="ngForm" (ngSubmit)="saveMovie()">
+        <form #movieForm="ngForm" (ngSubmit)="updateMovie()">
           <div *ngIf="movie">
             <input type="text" name="id" [(ngModel)]="ms.selectedMovie.id">
               <div class="mb-3">
@@ -28,7 +28,7 @@
                   <textarea [(ngModel)]="ms.selectedMovie.synopsis" class="form-control" name="synopsis" rows="3"></textarea>
               </div>
               <div class="mb-3">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
               </div>
           </div>
         </form>

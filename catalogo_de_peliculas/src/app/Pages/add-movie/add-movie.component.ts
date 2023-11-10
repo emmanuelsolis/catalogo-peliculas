@@ -2,16 +2,18 @@ import { Component } from '@angular/core';
 import { MovieService } from 'src/app/Services/movie.service';
 import { NgForm } from '@angular/forms';
 import { Movie } from 'src/app/movie';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
   templateUrl: './add-movie.component.html',
-  styleUrls: ['./add-movie.component.css']
+  styleUrls: ['./add-movie.component.css'],
 })
 export class AddMovieComponent {
+  movie: any = {}; 
+  movieId: any;
   movies : any = [];
-  constructor(private ms:MovieService, private router:Router){}
+  constructor(public ms:MovieService, private router:Router, private route: ActivatedRoute) {}
 
   cover!: string
   title!: string
@@ -19,6 +21,14 @@ export class AddMovieComponent {
   synopsis!: string
 
     errors: any = [];
+    ngOnInit() {
+      
+      this.movieId = this.route.snapshot.paramMap.get('id');
+      this.ms.getMovie(this.movieId).subscribe(res =>{
+        console.log("Esta es la Respuesta",res)
+        this.movie = res;
+      })
+    }
 
     onSubmit(){
       this.saveMovie();
@@ -30,7 +40,7 @@ export class AddMovieComponent {
         this.movies = res
       })
     }
-
+    
     saveMovie(){
       var inputData = {
         cover: this.cover,

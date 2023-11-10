@@ -33,6 +33,12 @@ export class ListMovieComponent implements OnInit {
 
     })
   }
-
+  onEdit(movie: MovieResponse){
+    alert(movie.title)
+    if(movie.id !== null){
+      this.ms.selectedMovie = Object.assign({}, movie);
+      this.router.navigate([`/movies/${movie.id}/edit`]);
+    }
+  }
  
 }

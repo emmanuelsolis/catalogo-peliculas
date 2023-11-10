@@ -14,10 +14,9 @@ const routes: Routes = [ ]
     AppComponent,
     NavbarComponent, 
     FooterComponent, 
-    // ListMovieComponent
   ],
   imports: [
-    BrowserModule,  HttpClientModule, AppRoutingModule, 
+    BrowserModule,  HttpClientModule,  AppRoutingModule
   ],
   exports: [RouterModule],
   providers: [],

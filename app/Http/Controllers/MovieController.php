@@ -47,14 +47,15 @@ class MovieController extends Controller
         return view('editMovie', ['movie' => $movie]);
     }
     public function update(Request $request,$id) {
+        // $movie = Movie::find($id);
         $movie = Movie::find($id);
         $data = request()->all();
         $movie->title = $data['title'];
         $movie->year = $data['year'];
         $movie->synopsis = $data['synopsis'];
         $movie->cover = $data['cover'];
-      $movie->update();
-        return redirect()->back();
+        $movie->update();
+        // return redirect()->back();
     }
     public function destroy($id){
         $movie = Movie::find($id);
