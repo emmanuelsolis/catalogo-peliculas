@@ -9,28 +9,25 @@
       </div>
       <div class="card-body">
         <form #movieForm="ngForm" (ngSubmit)="saveMovie()">
-          <div *ngIf="movie">
-            <input type="text" name="id" [(ngModel)]="ms.selectedMovie.id">
               <div class="mb-3">
                   <label >Imagen</label>
-                  <input type="text" [(ngModel)]="ms.selectedMovie.cover" class="form-control" name="cover">
+                  <input type="text" [(ngModel)]="cover"  class="form-control" name="cover">
               </div>
               <div class="mb-3">
                   <label >Titulo</label>
-                  <input type="text" [(ngModel)]="ms.selectedMovie.title" class="form-control" name="title">
+                  <input type="text" [(ngModel)]="title" class="form-control" name="title">
               </div>
               <div class="mb-3">
                   <label >Año</label>
-                  <input type="text" [(ngModel)]="ms.selectedMovie.year" class="form-control" name="year">
+                  <input type="text"[(ngModel)]="year" class="form-control" name="year">
               </div>
               <div class="mb-3">
                   <label >Resúmen</label>
-                  <textarea [(ngModel)]="ms.selectedMovie.synopsis" class="form-control" name="synopsis" rows="3"></textarea>
+                  <textarea [(ngModel)]="synopsis" class="form-control" name="synopsis" rows="3"></textarea>
               </div>
               <div class="mb-3">
                   <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
-          </div>
         </form>
       </div>
     </div>

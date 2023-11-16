@@ -23,11 +23,8 @@ export class AddMovieComponent {
     errors: any = [];
     ngOnInit() {
       
-      this.movieId = this.route.snapshot.paramMap.get('id');
-      this.ms.getMovie(this.movieId).subscribe(res =>{
-        console.log("Esta es la Respuesta",res)
-        this.movie = res;
-      })
+      
+      
     }
 
     onSubmit(){
@@ -48,7 +45,7 @@ export class AddMovieComponent {
         year: this.year,
         synopsis: this.synopsis
       }
-      this.ms.saveMovie(inputData).subscribe({
+      this.ms.saveMovieObject(inputData).subscribe({
         next: (res:any) => {
          this.router.navigate(['/movies']);
           alert('Pelicula guardada correctamente');

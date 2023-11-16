@@ -48,9 +48,19 @@ export class MovieService {
     console.log('este es el url',movieUrl)
     return this.http.get<MovieResponse>(movieUrl);
   }
-  saveMovie(inputData:Movie): Observable<MovieResponse> {
-    console.log('este es el inputData',inputData)
-    return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData,/* {headers: this.reqHeader}*/);
+
+  createMovie(movie: Movie) {
+    return this.http.post<MovieResponse>(this.url + '/crear-pelicula', movie);
+  }
+
+  saveMovie(inputData: Movie): Observable<MovieResponse> {
+    console.log('este es el inputData', inputData);
+    return this.http.post<MovieResponse>(`${this.url}/crear-pelicula`, inputData, {headers: this.reqHeader});
+  }
+
+  saveMovieObject(inputData: object): Observable<object> {
+    console.log('este es el inputData', inputData);
+    return this.http.post<object>(`${this.url}/crear-pelicula`, inputData, {headers: this.reqHeader});
   }
   getMovie(id: number): Observable<MovieResponse> {
     const movieToEditUrl=`${this.url}/movies/${id}`;
